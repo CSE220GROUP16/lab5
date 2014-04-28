@@ -1,8 +1,8 @@
 //
 //  Scanner.cpp
-//  Lab4
+//  Lab5
 //
-//  Created by Bryce Holton.
+//  Created by Jie/Zelpha.
 //
 
 #include "Scanner.h"
@@ -193,7 +193,7 @@ void Scanner::getWord(char *str, char *token_ptr, Token *tok)
 
     /*
      Write some code to Check if the word is a reserved word.
-     if it is not a reserved word its an identifier.
+     if it is not a reserved word its an Identifier.
      */
     if (!isReservedWord(str, tok))
     {
@@ -443,7 +443,7 @@ void Scanner::downshiftWord(char word[])
      */
     int index;
 
-    for (index = 0; index < 3/*strlen(word)*/; index++)
+    for (index = 0; index < strlen(word); index++)
     {
         word[index] = tolower(word[index]);
     }

@@ -1,37 +1,7 @@
-//
-//  Scanner.h
-//  Lab5
-//
-//  Created by Jie/Zelpha
-//
-#ifndef __Lab5__Literal__
-#define __Lab5__Literal__
+#ifndef __Lab5__Real__
+#define __Lab5__Real__
 
 
-#include "Token.h"
-#include "common.h"
-using namespace std;
-template<class T>
-/*
-class Polygon {
-  protected:
-    int width, height;
-  public:
-    void set_values (int a, int b)
-      { width=a; height=b; }
-    virtual int area() =0;
-    void printarea()
-      { cout << this->area() << '\n'; }
-};
-*/
-class Literal : public Token
-{
-
-  public:
-    virtual void setLiteral(T lit)=0;
-    virtual T getLiteral()=0;
-    virtual void printLiteral();
-};
 
 
 
@@ -120,4 +90,5 @@ int main () {
   return 0;
 }
 
+*/
 #endif

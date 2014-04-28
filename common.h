@@ -1,12 +1,12 @@
 //
 //  common.h
-//  Lab3
+//  Lab5
 //
-//  Created by Bryce Holton.
+//  Created by Jie/Zelpha.
 //
 
-#ifndef CSE220_project2_common_h
-#define CSE220_project2_common_h
+#ifndef __lab5__common__
+#define __lab5__common__
 
 #include <stdio.h>
 #include <sys/types.h>

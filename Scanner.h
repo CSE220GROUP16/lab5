@@ -1,18 +1,19 @@
 //
 //  Scanner.h
-//  Lab4
+//  Lab5
 //
-//  Created by Bryce Holton.
+//  Created by Jie/Zelpha
 //
 
-#ifndef Lab4_Scanner_h
-#define Lab4_Scanner_h
-
+#ifndef __Lab5__Scanner__
+#define __Lab5__Scanner__
+#include<string.h>
 #include<stdlib.h>
 #include<string.h>
 #include "common.h"
 #include "Token.h"
 #include "Print.h"
+#include "Identifier.h"
 
 #define CHAR_TABLE_SIZE 256
 

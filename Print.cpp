@@ -30,13 +30,13 @@ Print::Print(char source_name[], char date[])
 }
 Print::~Print()
 {
-    
+
 }
 void Print::printLine(char line[])
 {
     char save_ch = '\0';
     char *save_chp = NULL;
-    
+
     if (++lineCount > MAX_LINES_PER_PAGE)
     {
         printPageHeader();
@@ -66,7 +66,7 @@ void Print::printToken(Token *token)
 {
     char line[MAX_SOURCE_LINE_LENGTH + 32];
     const char *symbol_string = SYMBOL_STRINGS[token->getCode()];
-    
+
     switch (token->getCode())
     {
         case NUMBER:
@@ -83,6 +83,7 @@ void Print::printToken(Token *token)
             sprintf(line, "    >> %-16s %-s\n", symbol_string, token->getStringLiteral().c_str());
             break;
         default:
+            //sprintf(line, "    >> %-16s %-s\n", symbol_string, token->getTokenString().c_str());
             sprintf(line, "    >> %-16s %-s\n", symbol_string, token->getTokenString().c_str());
             break;
     }
@@ -92,17 +93,17 @@ int Print::getLineCount()
 {
     return this->lineCount;
 }
-void Print::printTreeRecursive(Token *identifier)
+void Print::printTreeRecursive(Identifier *identifier)
 {
     char line[MAX_SOURCE_LINE_LENGTH + 32];
-    
+
     if (identifier->getLeftChild() != NULL)
     {
         printTreeRecursive(identifier->getLeftChild());
     }
-    sprintf(line, " %-16s %-s", identifier->getTokenString().c_str(), " ");
+    sprintf(line, " %-16s %-s", identifier->getIdentifierString().c_str(), " ");
     printLine(line);
-    
+
     LineNumberList *list = identifier->getLineNumberList();
     while (list != NULL)
     {
@@ -115,7 +116,7 @@ void Print::printTreeRecursive(Token *identifier)
         printTreeRecursive(identifier->getRightChild());
     }
 }
-void Print::printTree(Token *identifier)
+void Print::printTree(Identifier *identifier)
 {
     cout << "\n Cross Reference Information\n";
     cout << " Identifier \t\tLine Numbers\n";

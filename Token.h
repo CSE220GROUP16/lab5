@@ -11,7 +11,7 @@
 #include<stdlib.h>
 #include <iostream>
 #include "common.h"
-#include "LineNumberList.h"
+//#include "LineNumberList.h"
 
 using namespace std;
 
@@ -32,9 +32,9 @@ private:
     }
     literal;
     string tokenString;
-    Token *leftChild;
-    Token *rightChild;
-    LineNumberList *list;
+    //Token *leftChild;
+    //Token *rightChild;
+    //LineNumberList *list;
 
 public:
     Token();
@@ -51,12 +51,12 @@ public:
     string getStringLiteral();
     void setTokenString(string s);
     string getTokenString();
-    void setLeftChild(Token *tok);
-    Token *getLeftChild();
-    void setRightChild(Token *tok);
-    Token *getRightChild();
-    void addToLineNumberList(LineNumberList *listItem);
-    LineNumberList *getLineNumberList();
+   // void setLeftChild(Token *tok);
+   // Token *getLeftChild();
+    //void setRightChild(Token *tok);
+   // Token *getRightChild();
+    //void addToLineNumberList(LineNumberList *listItem);
+    //LineNumberList *getLineNumberList();
 };
 
 #endif /* defined(__Lab4__Token__) */

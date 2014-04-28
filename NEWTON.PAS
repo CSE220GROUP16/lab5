@@ -1,4 +1,4 @@
-PROGRAM newton (input, output);
+PROGRAM newton newton(input, output);
 
 CONST
     epsilon = 1e-6;

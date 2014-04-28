@@ -1,6 +1,6 @@
 //
 //  main.cpp
-//  Lab4
+//  Lab5
 //
 //  Created by Bryce Holton.
 //
@@ -25,14 +25,15 @@ int main(int argc, const char * argv[])
     Print print(source_name, date);
     Scanner scanner(source_file, source_name, date, print);
     IdentifierBinaryTree tree;
-    
+
     do
     {
         token = scanner.getToken();
         print.printToken(token);
         if (token->getCode() == IDENTIFIER)
         {
-            tree.addIdentifier(token, scanner.getLineNumber());
+            //cout <<"inside if, the token string is "<<token->getTokenString()<<"\n";
+            tree.addIdentifier((Identifier*)token, scanner.getLineNumber());
         }
         else if (token->getCode() != PERIOD && token->getCode() != END_OF_FILE)
         {
@@ -40,7 +41,7 @@ int main(int argc, const char * argv[])
         }
     }
     while (token->getCode() != PERIOD && token->getCode() != END_OF_FILE);
-    
+
     print.printTree(tree.getTreeRoot());
     delete token;
     fclose(source_file);
@@ -50,7 +51,7 @@ FILE *init_lister(const char *name, char source_file_name[], char dte[])
 {
     time_t timer;
     FILE *file;
-    
+
     strcpy(source_file_name, name);
     file = fopen(source_file_name, "r");
     time(&timer);

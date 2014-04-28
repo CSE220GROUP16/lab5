@@ -1,41 +1,44 @@
-//
-//  Scanner.h
-//  Lab5
-//
-//  Created by Jie/Zelpha
-//
-#ifndef __Lab5__Literal__
-#define __Lab5__Literal__
+#ifndef __Lab5__Integer__
+#define __Lab5__Integer__
 
 
-#include "Token.h"
-#include "common.h"
+
+
+
+/*
+
+void DoSomething() {
+    if (Child1* child = dynamic_cast<Child1*>(this)) {
+        child->childMember = 0;
+    } else if (Child2* child = dynamic_cast<Child2*>(this)) {
+        child->childMember = 0;
+    } // and so on, and so forth
+}
+
+// dynamic_cast
+#include <iostream>
+#include <exception>
 using namespace std;
-template<class T>
-/*
-class Polygon {
-  protected:
-    int width, height;
-  public:
-    void set_values (int a, int b)
-      { width=a; height=b; }
-    virtual int area() =0;
-    void printarea()
-      { cout << this->area() << '\n'; }
-};
-*/
-class Literal : public Token
-{
 
-  public:
-    virtual void setLiteral(T lit)=0;
-    virtual T getLiteral()=0;
-    virtual void printLiteral();
-};
+class Base { virtual void dummy() {} };
+class Derived: public Base { int a; };
 
+int main () {
+  try {
+    Base * pba = new Derived;
+    Base * pbb = new Base;
+    Derived * pd;
 
+    pd = dynamic_cast<Derived*>(pba);
+    if (pd==0) cout << "Null pointer on first type-cast.\n";
 
-/*
+    pd = dynamic_cast<Derived*>(pbb);
+    if (pd==0) cout << "Null pointer on second type-cast.\n";
+
+  } catch (exception& e) {cout << "Exception: " << e.what();}
+  return 0;
+}
+
 literal example
 template <class T>
 class mypair {
@@ -120,4 +123,5 @@ int main () {
   return 0;
 }
 
+*/
 #endif
