@@ -15,6 +15,7 @@ IdentifierBinaryTree::IdentifierBinaryTree()
 {
     setTreeRoot(NULL);
 }
+
 IdentifierBinaryTree::~IdentifierBinaryTree()
 {
     Token *root = getTreeRoot();
