@@ -7,10 +7,7 @@
 
 #ifndef mine_h
 #define mine_h
-
-#include "Real.h"
-#include "Integer.h"
-#include "String.h"
+#include "template_clas.h"
 
 #endif // mine_h
 

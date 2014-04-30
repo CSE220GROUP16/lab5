@@ -24,19 +24,9 @@ Token::~Token()
 
     while (root != NULL)
     {
-        if (   ((template_clas<char *> *)this->literal)     )
-         { char * a = ( (template_clas<char *>) this->literal)->get_charptr_LIT();
-              free ( a   );
-          free((template_clas<char *> *)this->literal);}
-
-         if (   ((template_clas<int> *)this->literal)     )
-         { free((template_clas<int> *)this->literal);}
-
-         if (   ((template_clas<float> *)this->literal)     )
-         { free((template_clas<float> *)this->literal);}
-
-
-
+        if (this->literal)
+         { delete this->literal;
+          free(this->literal);}
 
         tmp = tmp->getNextLineNumber();
         delete root;
@@ -131,36 +121,43 @@ Token *Token::getRightChild()
 }
 
 
-Literal * Token::get_Literal_value()
+void * Token::get_Literal_value()
 {   return this->literal;
 }
-void Token::set_Literal_value(Literal * temp, int j)
+void Token::set_Literal_value(void * temp, int j)
 {
 
     if (j ==1)
-        {int w3 = temp->get_INTEGER_LIT();
-         Integer *ii = new Integer();  //;String_mine *l_string = (String_mine *) malloc(sizeof(String_mine));
-         ii->set_INTEGER_LIT(w3);
-        this->literal = ii;
-        //this->literal-> = ( Integer *) temp;
+        {
+         int w3 = ((template_clas<int> *)temp)->get_INTEGER_REAL_LIT();
+         template_clas<int> *ii = new template_clas<int>();  //;String_mine *l_string = (String_mine *) malloc(sizeof(String_mine));
+         ii->set_INTEGER_REAL_LIT(w3);
+         this->literal = ii;
+
         }
     if (j==2)
-        {float r3 = temp->get_REAL_LIT();
-         Real *rr = new Real();  //;String_mine *l_string = (String_mine *) malloc(sizeof(String_mine));
-         rr->set_REAL_LIT(r3);
+        {float r3 = ((template_clas<float> *)temp)->get_INTEGER_REAL_LIT();
+         template_clas<float> *rr = new template_clas<float>();  //;String_mine *l_string = (String_mine *) malloc(sizeof(String_mine));
+         rr->set_INTEGER_REAL_LIT(r3);
         this->literal = rr;
         }
     if(j==3)
-        {char *  s3 = temp->get_STRING_LIT();
-         String *ss = new String();  //;String_mine *l_string = (String_mine *) malloc(sizeof(String_mine));
+        {string  s3 = ((template_clas<char *> *)temp)->get_STRING_LIT();
+         template_clas<char *> *ss = new template_clas<char *>();  //;String_mine *l_string = (String_mine *) malloc(sizeof(String_mine));
          ss->set_STRING_LIT(s3);
         this->literal = ss;
         }
 }
 
- void Token::print_LIT1(){
-    this->literal->print_LIT();
+ void Token::print_LIT1(int w){
 
+
+    if (w==1)
+        ((template_clas<int> *)this->literal)->print_LIT();
+    if (w==2)
+        ((template_clas<float> *)this->literal)->print_LIT();
+    if (w==3)
+        ((template_clas<string> *)this->literal)->print_LIT();
  }
 
 void Token::addToLineNumberList(LineNumberList *listItem)

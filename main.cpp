@@ -11,13 +11,19 @@
 #include "Scanner.h"
 #include "Token.h"
 #include "IdentifierBinaryTree.h"
+#include "template_clas.h"
 
 FILE *init_lister(const char *name, char source_file_name[], char dte[]);
 void quit_scanner(FILE *src_file, Token *list);
 void add_token_to_list(Token *list, Token *new_token);
 
+using namespace std;
+
+
 int main(int argc, const char * argv[])
 {
+
+
     Token *token = NULL;
  int ser = 0;
     char source_name[MAX_FILE_NAME_LENGTH];

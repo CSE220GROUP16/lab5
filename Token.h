@@ -12,10 +12,12 @@
 #include <iostream>
 #include "common.h"
 #include "LineNumberList.h"
-#include "Literal.h"
-#include "String.h"
-#include "Integer.h"
-#include "Real.h"
+#include "template_clas.h"
+
+#include <vector>
+#include <cstdlib>
+#include <string>
+#include <stdexcept>
 
 using namespace std;
 
@@ -29,7 +31,10 @@ private:
     TokenCode code;
     LiteralType type;
 
-    Literal  * literal;
+    //Literal * literal;
+    void * literal;
+
+   //template_class *literal_tc; //Literal  * literal;
 
    //not needed since literal is a subclass of Token
     string tokenString;
@@ -48,9 +53,9 @@ public:
     void setType(LiteralType newType);
     LiteralType getType();
 
-    Literal * get_Literal_value();
-    void set_Literal_value(Literal * temp, int j);
-    void print_LIT1();
+    void * get_Literal_value();
+    void set_Literal_value(void * p,  int j);
+    void print_LIT1(int w);
 
 /*
     void setLiteral(int newInteger);

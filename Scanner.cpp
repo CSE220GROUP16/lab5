@@ -7,10 +7,7 @@
 
 #include "Scanner.h"
 #include "Print.h"
-#include "Integer.h"
-#include "String.h"
-#include "Real.h"
-#include "Literal.h"
+
 
 
 #include <string>
@@ -219,8 +216,9 @@ void Scanner::getNumber(char *str, char *token_ptr, Token *tok)
     /*
      Write some code to Extract the number and convert it to a literal number.
      */
-     Integer my_I;
-     Real my_R;
+     template_clas<int> my_I;
+     template_clas<float> my_R;
+
     char ch = *line_ptr;
     bool int_type = true;
 
@@ -279,15 +277,15 @@ void Scanner::getNumber(char *str, char *token_ptr, Token *tok)
     {
         tok->setType(INTEGER_LIT);
         w_int =  (int) atoi(str);
-        my_I.set_INTEGER_LIT(w_int);
-        tok->set_Literal_value((Literal *) &my_I, 1) ;
+        my_I.set_INTEGER_REAL_LIT(w_int);
+        tok->set_Literal_value((void *) &my_I, 1) ;
 
     }
     else
     {
         tok->setType(REAL_LIT);
-        my_R.set_REAL_LIT((float)atof(str));
-	 tok->set_Literal_value((Literal *) &my_R, 2);
+        my_R.set_INTEGER_REAL_LIT((float)atof(str));
+	 tok->set_Literal_value((void *) &my_R, 2);
 
     }
 }
@@ -296,7 +294,7 @@ void Scanner::getString(char *str, char *token_ptr, Token *tok)
     /*
      Write some code to Extract the string
      */
-     String my_S;
+     template_clas<char *> my_S;
 
     *token_ptr++ = '\'';
     char ch = *(++line_ptr);
@@ -313,7 +311,7 @@ void Scanner::getString(char *str, char *token_ptr, Token *tok)
     string test(str);
        my_S.set_STRING_LIT(test);
 
-	 tok->set_Literal_value((Literal *) &my_S, 3);
+	 tok->set_Literal_value((void *) &my_S, 3);
 }
 
 

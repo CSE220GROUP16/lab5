@@ -77,17 +77,17 @@ void Print::printToken(Token *token)
         case NUMBER:
             if (token->getType() == INTEGER_LIT)
             {
-                Integer  * my_I = (Integer *) token->get_Literal_value();
-          	sprintf(line, "    >> %-16s %d (integer)\n", symbol_string,  my_I->get_INTEGER_LIT());
+
+          	sprintf(line, "    >> %-16s %d (integer)\n", symbol_string,  ((template_clas<int> *)token->get_Literal_value())->get_INTEGER_REAL_LIT());
             }
             else
             {
-      sprintf(line, "    >> %-16s %g (real)\n", symbol_string, token->get_Literal_value()->get_REAL_LIT());
+      sprintf(line, "    >> %-16s %g (real)\n", symbol_string, ((template_clas<float> *)token->get_Literal_value())->get_INTEGER_REAL_LIT());
 
             }
             break;
         case STRING:
-           sprintf(line, "    >> %-16s %-s\n", symbol_string, token->get_Literal_value()->get_STRING_LIT().c_str());
+           sprintf(line, "    >> %-16s %-s\n", symbol_string, ((template_clas<string> *)token->get_Literal_value())->get_STRING_LIT().c_str());
             break;
         default:
               sprintf(line, "    >> %-16s %-s\n", symbol_string, token->getTokenString().c_str());

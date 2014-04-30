@@ -18,7 +18,7 @@ IdentifierBinaryTree::IdentifierBinaryTree()
 IdentifierBinaryTree::~IdentifierBinaryTree()
 {
     Token *root = getTreeRoot();
-    
+
     if (root != NULL)
     {
         depthFirstDeleteTree(root);
@@ -30,7 +30,7 @@ void IdentifierBinaryTree::depthFirstDeleteTree(Token *tok)
     {
         depthFirstDeleteTree(tok->getLeftChild());
     }
-//    cout << tok->getTokenString() << "\n";
+
     if (tok->getRightChild() != NULL)
     {
         depthFirstDeleteTree(tok->getRightChild());
@@ -49,7 +49,7 @@ bool IdentifierBinaryTree::addIdentifier(Token *tok, int lineNum)
 {
     bool success = false;
     LineNumberList *listItem = new LineNumberList();
-    
+
     listItem->setLineNumber(lineNum);
     if (getTreeRoot() == NULL)
     {
@@ -63,7 +63,7 @@ bool IdentifierBinaryTree::addIdentifier(Token *tok, int lineNum)
         Token *parentNode = getTreeRoot();
         string treeNodeName;
         int stringComparison;
-        
+
         while (parentNode != NULL)
         {
             treeNodeName = parentNode->getTokenString();
