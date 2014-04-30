@@ -1,9 +1,8 @@
 //
 //  LineNumberList.h
-//  Lab4
+//  Lab5
 //
-//  Created by Bryce Holton on 3/28/14.
-//  Copyright (c) 2014 Bryce Holton. All rights reserved.
+//  Created by jie/Zelpha
 //
 
 #ifndef __Lab4__LineNumberList__
@@ -15,7 +14,7 @@ class LineNumberList
 {
     int lineNumber;
     LineNumberList *nextLineNumber;
-    
+
 public:
     LineNumberList();
     ~LineNumberList();
@@ -25,4 +24,4 @@ public:
     LineNumberList *getNextLineNumber();
 };
 
-#endif /* defined(__Lab4__LineNumberList__) */
+#endif

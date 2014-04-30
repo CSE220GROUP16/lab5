@@ -1,8 +1,8 @@
 //
 //  main.cpp
-//  Lab4
+//  Lab5
 //
-//  Created by Bryce Holton.
+//  Created by jie/Zelpha
 //
 
 #include <iostream>
@@ -22,10 +22,8 @@ using namespace std;
 
 int main(int argc, const char * argv[])
 {
-
-
     Token *token = NULL;
- int ser = 0;
+    int ser = 0;
     char source_name[MAX_FILE_NAME_LENGTH];
     char date[DATE_STRING_LENGTH];
     FILE *source_file = init_lister(argv[1], source_name, date);
@@ -38,7 +36,8 @@ int main(int argc, const char * argv[])
         token = scanner.getToken();
        print.printToken(token);
         if (token->getCode() == IDENTIFIER)
-        { tree.addIdentifier(token, scanner.getLineNumber());
+        {
+            tree.addIdentifier((Identifier*)token, scanner.getLineNumber());
         }
         else if (token->getCode() != PERIOD && token->getCode() != END_OF_FILE)
         {

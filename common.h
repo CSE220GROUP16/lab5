@@ -1,8 +1,8 @@
 //
 //  common.h
-//  Lab3
+//  Lab5
 //
-//  Created by Bryce Holton.
+//  Created by jie/Zelpha
 //
 
 
@@ -52,11 +52,4 @@ typedef enum
 
 }
 LiteralType;
-
-
-
-
-
-
-
 #endif

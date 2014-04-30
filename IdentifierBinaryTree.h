@@ -1,32 +1,28 @@
 //
 //  IdentifierBinaryTree.h
-//  Lab4
+//  Lab5
 //
-//  Created by Bryce Holton on 3/28/14.
-//  Copyright (c) 2014 Bryce Holton. All rights reserved.
+//  Created by jie/Zelpha
 //
-
-
-
-
 #ifndef __Lab4__IdentifierBinaryTree__
 #define __Lab4__IdentifierBinaryTree__
 
 #include <iostream>
 #include "Token.h"
+#include "Identifier.h"
+#include "Print.h"
 
 class IdentifierBinaryTree
 {
-    Token *treeRoot;
-    
-    void depthFirstDeleteTree(Token *tok);
-    
+    Identifier *treeRoot;
+    void depthFirstDeleteTree(Identifier *tok);
+
 public:
     IdentifierBinaryTree();
     ~IdentifierBinaryTree();
-    void setTreeRoot(Token *root);
-    Token *getTreeRoot();
-    bool addIdentifier(Token *tok, int lineNum);
+    void setTreeRoot(Identifier *root);
+    Identifier *getTreeRoot();
+    bool addIdentifier(Identifier *tok, int lineNum);
 };
 
-#endif /* defined(__Lab4__IdentifierBinaryTree__) */
+#endif
