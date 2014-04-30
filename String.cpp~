@@ -1,0 +1,37 @@
+//
+//  Print.cpp
+//  Lab4
+//
+//  Created by Bryce Holton.
+//
+
+#include "Integer.h"
+#include <iostream>
+#include "Real.h"
+#include <stdio.h>
+#include <string>
+#include "String.h"
+#include <string.h>
+
+#include<stdlib.h>
+#include <iostream>
+
+using namespace std;
+
+string String::get_STRING_LIT()
+	{
+  	// return string(this->literal.stringLiteral);
+	// string(this->literal.get_STRING_LIT());
+
+	return string(i);
+	}
+void String::set_STRING_LIT(string  s)
+	{
+     		i = (char*)malloc(sizeof(char) * s.length() + 1);
+   		strcpy(i, s.c_str());
+	}
+
+void String::print_STRING_LIT()
+	{cout << i << "/t";}
+    
+

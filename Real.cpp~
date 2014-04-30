@@ -1,0 +1,25 @@
+//
+//  Print.cpp
+//  Lab4
+//
+//  Created by Bryce Holton.
+//
+
+
+#include "Integer.h"
+#include <iostream>
+#include "Real.h"
+#include <stdio.h>
+#include <string>
+
+using namespace std;
+
+
+double Real::get_REAL_LIT()
+	{return i;}
+void Real::set_REAL_LIT(double d)
+	{i = d;}
+void Real::print_REAL_LIT()
+	{cout << i << "/t";}
+    
+

@@ -5,8 +5,7 @@
 //  Created by Bryce Holton.
 //
 
-
-#include "Token.h"
+#include "Literal.h"
 
 #ifndef CSE220_project2_common_h
 #define CSE220_project2_common_h
@@ -24,7 +23,6 @@
 #define MAX_PRINT_LINE_LENGTH   80
 #define MAX_LINES_PER_PAGE      50
 #define DATE_STRING_LENGTH      26
-
 
 /***************************
  Token Codes
@@ -49,7 +47,7 @@ TokenCode;
 typedef enum
 {
    INTEGER_LIT, REAL_LIT, STRING_LIT, NO_TYPE,
-
+  
 }
 LiteralType;
 

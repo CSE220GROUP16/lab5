@@ -7,13 +7,13 @@
 //
 
 
-
+#include "Token.h"
 
 #ifndef __Lab4__IdentifierBinaryTree__
 #define __Lab4__IdentifierBinaryTree__
 
 #include <iostream>
-#include "Token.h"
+//include "Token.h"
 
 class IdentifierBinaryTree
 {

@@ -1,0 +1,29 @@
+
+
+#include "Literal.h"
+
+#ifndef __Lab5__String__
+#define __Lab5__String__
+#include<string>
+#include<stdlib.h>
+#include <iostream>
+
+
+using namespace std;
+
+class String: public Literal
+{
+	
+private:
+	char * i;
+    
+public:
+	string get_STRING_LIT();
+	void set_STRING_LIT(string  s);
+	void print_STRING_LIT();
+	~String()
+	{free(i);
+	}
+    
+};
+#endif

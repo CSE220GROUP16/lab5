@@ -31,36 +31,32 @@ Print::Print(char source_name[], char date[])
 }
 Print::~Print()
 {
-
+    
 }
 void Print::printLine(char line[])
 {
     char save_ch = '\0';
     char *save_chp = NULL;
-
+    
     if (++lineCount > MAX_LINES_PER_PAGE)
     {
         printPageHeader();
         lineCount = 1;
     }
-
     if (strlen(line) > MAX_PRINT_LINE_LENGTH)
     {
         save_chp = &line[MAX_PRINT_LINE_LENGTH];
     }
-
     if (save_chp)
-    {    save_ch = *save_chp;
+    {
+        save_ch = *save_chp;
         *save_chp = '\0';
     }
-     cout << line  << "\t";
-
-            if (save_chp)
+    printf("%s", line);
+    if (save_chp)
     {
-         *save_chp = save_ch;
+        *save_chp = save_ch;
     }
-
-
 }
 void Print::printPageHeader()
 {
@@ -71,32 +67,32 @@ void Print::printToken(Token *token)
 {
     char line[MAX_SOURCE_LINE_LENGTH + 32];
     const char *symbol_string = SYMBOL_STRINGS[token->getCode()];
- memset(line, '\0', sizeof(line));
+    
     switch (token->getCode())
     {
         case NUMBER:
             if (token->getType() == INTEGER_LIT)
             {
-                Integer  * my_I = (Integer *) token->get_Literal_value();
-          	sprintf(line, "    >> %-16s %d (integer)\n", symbol_string,  my_I->get_INTEGER_LIT());
+               // sprintf(line, "    >> %-16s %d (integer)\n", symbol_string, token->getIntegerLiteral());
+		sprintf(line, "    >> %-16s %d (integer)\n", symbol_string, token->literal->get_INTEGER_LIT());
             }
             else
             {
-      sprintf(line, "    >> %-16s %g (real)\n", symbol_string, token->get_Literal_value()->get_REAL_LIT());
+               // sprintf(line, "    >> %-16s %g (real)\n", symbol_string, token->getRealLiteral());
+		sprintf(line, "    >> %-16s %d (real)\n", symbol_string, token->literal->get_REAL_LIT());
 
             }
             break;
         case STRING:
-           sprintf(line, "    >> %-16s %-s\n", symbol_string, token->get_Literal_value()->get_STRING_LIT().c_str());
+           // sprintf(line, "    >> %-16s %-s\n", symbol_string, token->getStringLiteral().c_str());
+	      sprintf(line, "    >> %-16s %-s\n", symbol_string, token->literal->get_STRING_LITl().c_str());
             break;
         default:
+           // sprintf(line, "    >> %-16s %-s\n", symbol_string, token->getTokenString().c_str());
               sprintf(line, "    >> %-16s %-s\n", symbol_string, token->getTokenString().c_str());
-
             break;
     }
-
     printLine(line);
-
 }
 int Print::getLineCount()
 {
@@ -105,14 +101,14 @@ int Print::getLineCount()
 void Print::printTreeRecursive(Token *identifier)
 {
     char line[MAX_SOURCE_LINE_LENGTH + 32];
-
+    
     if (identifier->getLeftChild() != NULL)
     {
         printTreeRecursive(identifier->getLeftChild());
     }
     sprintf(line, " %-16s %-s", identifier->getTokenString().c_str(), " ");
     printLine(line);
-
+    
     LineNumberList *list = identifier->getLineNumberList();
     while (list != NULL)
     {

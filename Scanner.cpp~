@@ -10,12 +10,7 @@
 #include "Integer.h"
 #include "String.h"
 #include "Real.h"
-#include "Literal.h"
-
-
 #include <string>
-
-
 
 using namespace std;
 
@@ -98,6 +93,7 @@ Token* Scanner::getToken()
     char token_string[MAX_TOKEN_STRING_LENGTH] = {'\0'}; //Store your token here as you build it.
     char *token_ptr = token_string; //write some code to point this to the beginning of token_string
     Token *new_token = new Token();
+
     new_token->setType(NO_TYPE);
     //1.  Skip past all of the blanks
     if (line_ptr == NULL)
@@ -219,13 +215,9 @@ void Scanner::getNumber(char *str, char *token_ptr, Token *tok)
     /*
      Write some code to Extract the number and convert it to a literal number.
      */
-     Integer my_I;
-     Real my_R;
     char ch = *line_ptr;
     bool int_type = true;
 
- int w_int = 9;
- float w_real = 9.3;
     do
     {
         *(token_ptr++) = ch;
@@ -276,18 +268,21 @@ void Scanner::getNumber(char *str, char *token_ptr, Token *tok)
     *token_ptr = '\0';
     tok->setCode(NUMBER);
     if (int_type)
-    {
+    { 
         tok->setType(INTEGER_LIT);
-        w_int =  (int) atoi(str);
-        my_I.set_INTEGER_LIT(w_int);
-        tok->set_Literal_value((Literal *) &my_I, 1) ;
+       // tok->setLiteral((int)atoi(str));
+	 Integer *l_int = new Integer();
+	tok->literal = l_int;
+	tok->literal->set_INTEGER_LIT((int)atoi(str));
 
     }
     else
     {
         tok->setType(REAL_LIT);
-        my_R.set_REAL_LIT((float)atof(str));
-	 tok->set_Literal_value((Literal *) &my_R, 2);
+        //tok->setLiteral((float)atof(str));
+	 Real *l_real = new Real();
+	tok->literal = l_real;
+	tok->literal->set_REAL_LIT((float)atoi(str));
 
     }
 }
@@ -296,8 +291,6 @@ void Scanner::getString(char *str, char *token_ptr, Token *tok)
     /*
      Write some code to Extract the string
      */
-     String my_S;
-
     *token_ptr++ = '\'';
     char ch = *(++line_ptr);
     while (ch != '\'')
@@ -311,14 +304,14 @@ void Scanner::getString(char *str, char *token_ptr, Token *tok)
     tok->setType(STRING_LIT);
 
     string test(str);
-       my_S.set_STRING_LIT(test);
+ 
+   // tok->setLiteral(test); 
+    String *l_string = new String();
+    tok->literal = l_string; 
+    tok->literal->set_STRING_LIT(test);
 
-	 tok->set_Literal_value((Literal *) &my_S, 3);
+
 }
-
-
-
-
 void Scanner::getSpecial(char *str, char *token_ptr, Token *tok)
 {
     /*

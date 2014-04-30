@@ -1,45 +1,67 @@
-//
-//  Token.h
-//  Lab4
-//
-//  Created by Bryce Holton.
-//
 
 #ifndef __Lab5__Identifier__
 #define __Lab5__Identifier__
-#include<string.h>
-#include<stdlib.h>
+
 #include <iostream>
 #include "Token.h"
-#include "common.h"
-#include "LineNumberList.h"
 
-using namespace std;
-
-/**************
- this is a valid Pascal token.  A token must have a literal type,
- a literal value, and a token code.
- ***************/
-class Identifier:public Token
+class Identifier : public Token
 {
 private:
     Identifier *leftChild;
     Identifier *rightChild;
     LineNumberList *list;
-    string IdentifierString;
 
 public:
     Identifier();
     ~Identifier();
-
     void setLeftChild(Identifier *tok);
     Identifier *getLeftChild();
     void setRightChild(Identifier *tok);
     Identifier *getRightChild();
     void addToLineNumberList(LineNumberList *listItem);
     LineNumberList *getLineNumberList();
-    void setIdentifierString(string s);
-    string getIdentifierString();
+
+
 };
 
-#endif
+#endif /* defined(__Lab4__IdentifierBinaryTree__) */
+/**************
+private:
+    TokenCode code;
+    LiteralType type;
+    union
+    {
+        int integer;
+        float real;
+        char *stringLiteral;
+    }
+    literal;
+    string tokenString;
+    Token *leftChild;
+    Token *rightChild;
+    LineNumberList *list;
+
+public:
+    Token();
+    ~Token();
+    void setCode(TokenCode newCode);
+    TokenCode getCode();
+    void setType(LiteralType newType);
+    LiteralType getType();
+    void setLiteral(int newInteger);
+    int getIntLiteral();
+    void setLiteral(float newReal);
+    float getRealLiteral();
+    void setLiteral(string newString);
+    string getStringLiteral();
+    void setTokenString(string s);
+    string getTokenString();
+    void setLeftChild(Token *tok);
+    Token *getLeftChild();
+    void setRightChild(Token *tok);
+    Token *getRightChild();
+    void addToLineNumberList(LineNumberList *listItem);
+    LineNumberList *getLineNumberList();
+
+***************/

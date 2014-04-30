@@ -1,0 +1,21 @@
+#ifndef __Lab5__Real__
+#define __Lab5__Real__
+
+
+#include "Literal.h"
+
+using namespace std;
+
+class Real: public Literal
+{
+	
+private:
+	float i;
+    
+public:
+	float get_REAL_LIT();
+	void set_REAL_LIT(float d);
+	void print_REAL_LIT();
+    
+};
+#endif

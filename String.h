@@ -1,91 +1,43 @@
+
+
+
 #ifndef __Lab5__String__
 #define __Lab5__String__
 
+#include "Literal.h"
 
-/*
-literal example
-template <class T>
-class mypair {
-    T values [2];
-  public:
-    mypair (T first, T second)
-    {
-      values[0]=first; values[1]=second;
-    }
-};
-
-mypair<int> myobject (115, 36);
-mypair<double> myfloats (3.0, 2.18);
-
-
-another example
-// class templates
+#include<string>
+#include<stdlib.h>
 #include <iostream>
+
+
 using namespace std;
 
-template <class T>
-class mypair {
-    T a, b;
-  public:
-    mypair (T first, T second)
-      {a=first; b=second;}
-    T getmax ();
-};
-
-template <class T>
-T mypair<T>::getmax ()
+class String: public Literal
 {
-  T retval;
-  retval = a>b? a : b;
-  return retval;
-}
 
-int main () {
-  mypair <int> myobject (100, 75);
-  cout << myobject.getmax();
-  return 0;
-}
+private:
+	char * is;
+
+public:
+	virtual string get_STRING_LIT();
+	virtual void set_STRING_LIT(string  s);
+	virtual void print_LIT();
+    ~String()
+	{free(is);}
+	String(){};
 
 
-// pure virtual members can be called
-// from the abstract base class
-#include <iostream>
-using namespace std;
 
-class Polygon {
-  protected:
-    int width, height;
-  public:
-    void set_values (int a, int b)
-      { width=a; height=b; }
-    virtual int area() =0;
-    void printarea()
-      { cout << this->area() << '\n'; }
+	virtual int get_INTEGER_LIT(){return 3;};
+	//virtual string  get_STRING_LIT(){};
+	virtual float get_REAL_LIT(){return 3.3;};
+	//get_NO_TYPE();
+
+	virtual void set_INTEGER_LIT(int a){};
+	//virtual void set_STRING_LIT(string s){};
+	virtual void set_REAL_LIT(float d){};
+
+
 };
-
-class Rectangle: public Polygon {
-  public:
-    int area (void)
-      { return (width * height); }
-};
-
-class Triangle: public Polygon {
-  public:
-    int area (void)
-      { return (width * height / 2); }
-};
-
-int main () {
-  Rectangle rect;
-  Triangle trgl;
-  Polygon * ppoly1 = &rect;
-  Polygon * ppoly2 = &trgl;
-  ppoly1->set_values (4,5);
-  ppoly2->set_values (4,5);
-  ppoly1->printarea();
-  ppoly2->printarea();
-  return 0;
-}
-
-*/
 #endif

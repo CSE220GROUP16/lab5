@@ -10,6 +10,7 @@
 #include "Print.h"
 #include "Scanner.h"
 #include "Token.h"
+//#include "Literal.h"
 #include "IdentifierBinaryTree.h"
 
 FILE *init_lister(const char *name, char source_file_name[], char dte[]);
@@ -19,20 +20,23 @@ void add_token_to_list(Token *list, Token *new_token);
 int main(int argc, const char * argv[])
 {
     Token *token = NULL;
- int ser = 0;
+    Literal * literal = NULL;
     char source_name[MAX_FILE_NAME_LENGTH];
     char date[DATE_STRING_LENGTH];
     FILE *source_file = init_lister(argv[1], source_name, date);
     Print print(source_name, date);
     Scanner scanner(source_file, source_name, date, print);
     IdentifierBinaryTree tree;
-
+    
     do
     {
         token = scanner.getToken();
-       print.printToken(token);
+	literal->token = token;
+       // print.printToken(token);
+	 print.printToken(literal);
         if (token->getCode() == IDENTIFIER)
-        { tree.addIdentifier(token, scanner.getLineNumber());
+        {
+            tree.addIdentifier(token, scanner.getLineNumber());
         }
         else if (token->getCode() != PERIOD && token->getCode() != END_OF_FILE)
         {
@@ -40,6 +44,7 @@ int main(int argc, const char * argv[])
         }
     }
     while (token->getCode() != PERIOD && token->getCode() != END_OF_FILE);
+    
     print.printTree(tree.getTreeRoot());
     delete token;
     fclose(source_file);
@@ -49,7 +54,7 @@ FILE *init_lister(const char *name, char source_file_name[], char dte[])
 {
     time_t timer;
     FILE *file;
-
+    
     strcpy(source_file_name, name);
     file = fopen(source_file_name, "r");
     time(&timer);

@@ -1,0 +1,25 @@
+#ifndef __Lab5__Integer__
+#define __Lab5__Integer__
+
+
+#include "Literal.h"
+
+
+
+
+
+using namespace std;
+
+class Integer: public Literal
+{
+	
+private:
+	int i;
+    
+public:
+	int get_INTEGER_LIT();
+	void set_INTEGER_LIT(int a);
+	void print_INTEGER_LIT();
+    
+};
+#endif

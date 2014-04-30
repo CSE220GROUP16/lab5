@@ -1,7 +1,8 @@
 PROGRAM newton (input, output);
 
 CONST
-    epsilon = 599;
+    epsilon = 1e-6;
+
 VAR
     number, root, sqroot : real;
 

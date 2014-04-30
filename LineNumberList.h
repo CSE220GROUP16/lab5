@@ -1,13 +1,13 @@
 //
 //  LineNumberList.h
-//  Lab5
+//  Lab4
 //
 //  Created by Bryce Holton on 3/28/14.
 //  Copyright (c) 2014 Bryce Holton. All rights reserved.
 //
 
-#ifndef __Lab5__LineNumberList__
-#define __Lab5__LineNumberList__
+#ifndef __Lab4__LineNumberList__
+#define __Lab4__LineNumberList__
 
 #include <iostream>
 
@@ -25,4 +25,4 @@ public:
     LineNumberList *getNextLineNumber();
 };
 
-#endif 
+#endif /* defined(__Lab4__LineNumberList__) */
