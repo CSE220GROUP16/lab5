@@ -1,8 +1,8 @@
 //
 //  Print.cpp
-//  Lab4
+//  Lab5
 //
-//  Created by Bryce Holton.
+//  Created by jie/Zelpha
 //
 
 #include "Print.h"
@@ -71,30 +71,26 @@ void Print::printToken(Token *token)
 {
     char line[MAX_SOURCE_LINE_LENGTH + 32];
     const char *symbol_string = SYMBOL_STRINGS[token->getCode()];
- memset(line, '\0', sizeof(line));
+    memset(line, '\0', sizeof(line));
     switch (token->getCode())
     {
         case NUMBER:
             if (token->getType() == INTEGER_LIT)
             {
-
           	sprintf(line, "    >> %-16s %d (integer)\n", symbol_string,  ((template_clas<int> *)token->get_Literal_value())->get_INTEGER_REAL_LIT());
             }
             else
             {
-      sprintf(line, "    >> %-16s %g (real)\n", symbol_string, ((template_clas<float> *)token->get_Literal_value())->get_INTEGER_REAL_LIT());
-
+            sprintf(line, "    >> %-16s %g (real)\n", symbol_string, ((template_clas<float> *)token->get_Literal_value())->get_INTEGER_REAL_LIT());
             }
             break;
         case STRING:
-           sprintf(line, "    >> %-16s %-s\n", symbol_string, ((template_clas<string> *)token->get_Literal_value())->get_STRING_LIT().c_str());
+            sprintf(line, "    >> %-16s %-s\n", symbol_string, ((template_clas<string> *)token->get_Literal_value())->get_STRING_LIT().c_str());
             break;
         default:
-              sprintf(line, "    >> %-16s %-s\n", symbol_string, token->getTokenString().c_str());
-
+            sprintf(line, "    >> %-16s %-s\n", symbol_string, token->getTokenString().c_str());
             break;
     }
-
     printLine(line);
 
 }
@@ -102,7 +98,7 @@ int Print::getLineCount()
 {
     return this->lineCount;
 }
-void Print::printTreeRecursive(Token *identifier)
+void Print::printTreeRecursive(Identifier *identifier)
 {
     char line[MAX_SOURCE_LINE_LENGTH + 32];
 
@@ -110,7 +106,10 @@ void Print::printTreeRecursive(Token *identifier)
     {
         printTreeRecursive(identifier->getLeftChild());
     }
-    sprintf(line, " %-16s %-s", identifier->getTokenString().c_str(), " ");
+
+//    cout << "i am here before the token string\n";
+
+    sprintf(line, " %-16s %-s", identifier->getIdentifierString().c_str(), " ");
     printLine(line);
 
     LineNumberList *list = identifier->getLineNumberList();
@@ -125,7 +124,7 @@ void Print::printTreeRecursive(Token *identifier)
         printTreeRecursive(identifier->getRightChild());
     }
 }
-void Print::printTree(Token *identifier)
+void Print::printTree(Identifier *identifier)
 {
     cout << "\n Cross Reference Information\n";
     cout << " Identifier \t\tLine Numbers\n";

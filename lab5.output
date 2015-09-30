@@ -1,0 +1,227 @@
+Page    1  NEWTON.PAS  Tue Apr 29 21:04:41 2014
+
+
+   1: PROGRAM newton (input, output);
+	Page    1  NEWTON.PAS  Tue Apr 29 21:04:41 2014
+
+
+    >> PROGRAM          program
+	    >> <IDENTIFIER>     newton
+	    >> (                (
+	    >> <IDENTIFIER>     input
+	    >> ,                ,
+	    >> <IDENTIFIER>     output
+	    >> )                )
+	    >> ;                ;
+	   2: 
+	   3: CONST
+	    >> CONST            const
+	   4:     epsilon = 599;
+	    >> <IDENTIFIER>     epsilon
+	    >> =                =
+	    >> <NUMBER>         599 (integer)
+	    >> ;                ;
+	   5: VAR
+	    >> VAR              var
+	   6:     number, root, sqroot : real;
+	    >> <IDENTIFIER>     number
+	    >> ,                ,
+	    >> <IDENTIFIER>     root
+	    >> ,                ,
+	    >> <IDENTIFIER>     sqroot
+	    >> :                :
+	    >> <IDENTIFIER>     real
+	    >> ;                ;
+	   7: 
+	   8: BEGIN
+	    >> BEGIN            begin
+	   9:     REPEAT
+	    >> REPEAT           repeat
+	  10: 	writeln;
+	    >> <IDENTIFIER>     writeln
+	    >> ;                ;
+	  11: 	write('Enter new number (0 to quit): ');
+	    >> <IDENTIFIER>     write
+	    >> (                (
+	    >> <STRING>         'Enter new number (0 to quit): '
+	    >> )                )
+	    >> ;                ;
+	  12: 	read(number);
+	    >> <IDENTIFIER>     read
+	    >> (                (
+	    >> <IDENTIFIER>     number
+	    >> )                )
+	    >> ;                ;
+	  13: 
+	  14: 	IF number = 0 THEN BEGIN
+	    >> IF               if
+	    >> <IDENTIFIER>     number
+	    >> =                =
+	    >> <NUMBER>         0 (integer)
+	    >> THEN             then
+	    >> BEGIN            begin
+	  15: 	    writeln(number:12:6, 0.0:12:6);
+	    >> <IDENTIFIER>     writeln
+	    >> (                (
+	    >> <IDENTIFIER>     number
+	    >> :                :
+	    >> <NUMBER>         12 (integer)
+	    >> :                :
+	    >> <NUMBER>         6 (integer)
+	    >> ,                ,
+	Page    2  NEWTON.PAS  Tue Apr 29 21:04:41 2014
+
+
+    >> <NUMBER>         0 (real)
+	    >> <NUMBER>         12 (integer)
+	    >> :                :
+	    >> <NUMBER>         6 (integer)
+	    >> )                )
+	    >> ;                ;
+	  16: 	END
+	    >> END              end
+	  17: 	ELSE IF number < 0 THEN BEGIN
+	    >> ELSE             else
+	    >> IF               if
+	    >> <IDENTIFIER>     number
+	    >> <                <
+	    >> <NUMBER>         0 (integer)
+	    >> THEN             then
+	    >> BEGIN            begin
+	  18: 	    writeln('*** ERROR:  number < 0');
+	    >> <IDENTIFIER>     writeln
+	    >> (                (
+	    >> <STRING>         '*** ERROR:  number < 0'
+	    >> )                )
+	    >> ;                ;
+	  19: 	END
+	    >> END              end
+	  20: 	ELSE BEGIN
+	    >> ELSE             else
+	    >> BEGIN            begin
+	  21: 	    sqroot := sqrt(number);
+	    >> <IDENTIFIER>     sqroot
+	    >> :=               :=
+	    >> <IDENTIFIER>     sqrt
+	    >> (                (
+	    >> <IDENTIFIER>     number
+	    >> )                )
+	    >> ;                ;
+	  22: 	    writeln(number:12:6, sqroot:12:6);
+	    >> <IDENTIFIER>     writeln
+	    >> (                (
+	    >> <IDENTIFIER>     number
+	    >> :                :
+	    >> <NUMBER>         12 (integer)
+	    >> :                :
+	    >> <NUMBER>         6 (integer)
+	    >> ,                ,
+	    >> <IDENTIFIER>     sqroot
+	    >> :                :
+	    >> <NUMBER>         12 (integer)
+	    >> :                :
+	    >> <NUMBER>         6 (integer)
+	    >> )                )
+	    >> ;                ;
+	  23: 	    writeln;
+	    >> <IDENTIFIER>     writeln
+	    >> ;                ;
+	  24: 
+	  25: 	    root := 1;
+	    >> <IDENTIFIER>     root
+	    >> :=               :=
+	    >> <NUMBER>         1 (integer)
+	    >> ;                ;
+	  26: 	    REPEAT
+	Page    3  NEWTON.PAS  Tue Apr 29 21:04:41 2014
+
+
+    >> REPEAT           repeat
+	  27: 		root := (number/root + root)/2;
+	    >> <IDENTIFIER>     root
+	    >> :=               :=
+	    >> (                (
+	    >> <IDENTIFIER>     number
+	    >> /                /
+	    >> <IDENTIFIER>     root
+	    >> +                +
+	    >> <IDENTIFIER>     root
+	    >> )                )
+	    >> /                /
+	    >> <NUMBER>         2 (integer)
+	    >> ;                ;
+	  28: 		writeln(root:24:6,
+	    >> <IDENTIFIER>     writeln
+	    >> (                (
+	    >> <IDENTIFIER>     root
+	    >> :                :
+	    >> <NUMBER>         24 (integer)
+	    >> :                :
+	    >> <NUMBER>         6 (integer)
+	    >> ,                ,
+	  29: 			100*abs(root - sqroot)/sqroot:12:2,
+	    >> <NUMBER>         100 (integer)
+	    >> *                *
+	    >> <IDENTIFIER>     abs
+	    >> (                (
+	    >> <IDENTIFIER>     root
+	    >> -                -
+	    >> <IDENTIFIER>     sqroot
+	    >> )                )
+	    >> /                /
+	    >> <IDENTIFIER>     sqroot
+	    >> :                :
+	    >> <NUMBER>         12 (integer)
+	    >> :                :
+	    >> <NUMBER>         2 (integer)
+	    >> ,                ,
+	  30: 			'%')
+	    >> <STRING>         '%'
+	    >> )                )
+	  31: 	    UNTIL abs(number/sqr(root) - 1) < epsilon;
+	    >> UNTIL            until
+	    >> <IDENTIFIER>     abs
+	    >> (                (
+	    >> <IDENTIFIER>     number
+	    >> /                /
+	    >> <IDENTIFIER>     sqr
+	    >> (                (
+	    >> <IDENTIFIER>     root
+	    >> )                )
+	    >> -                -
+	    >> <NUMBER>         1 (integer)
+	    >> )                )
+	Page    4  NEWTON.PAS  Tue Apr 29 21:04:41 2014
+
+
+    >> <                <
+	    >> <IDENTIFIER>     epsilon
+	    >> ;                ;
+	  32: 	END
+	    >> END              end
+	  33:     UNTIL number = 0
+	    >> UNTIL            until
+	    >> <IDENTIFIER>     number
+	    >> =                =
+	    >> <NUMBER>         0 (integer)
+	  34: END.
+	    >> END              end
+	    >> .                .
+	
+ Cross Reference Information
+ Identifier 		Line Numbers
+ -----------		------------
+ abs               	29	31	
+ epsilon           	4	31	
+ input             	1	
+ newton            	1	
+ number            	6	12	14	15	17	21	22	27	31	33	
+ output            	1	
+ read              	12	
+ real              	6	
+ root              	6	25	27	27	27	28	29	31	
+ sqr               	31	
+ sqroot            	6	21	22	29	29	
+ sqrt              	21	
+ write             	11	
+ writeln           	10	15	18	22	23	28	

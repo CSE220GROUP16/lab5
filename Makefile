@@ -30,16 +30,14 @@
 CFLAGS = -ansi -c -g -O0 -Wall
 
 # If you add or remove .c files to or from the projet, then update this macro accordingly.
-
-
-SOURCES = 	IdentifierBinaryTree.cpp    \
-			LineNumberList.cpp   \
-			main.cpp      \
-			Print.cpp		\
-			Scanner.cpp	\
-			Token.cpp
-#SOURCES = Literal_test
-
+SOURCES = IdentifierBinaryTree.cpp    \
+          LineNumberList.cpp   \
+          main.cpp      \
+          Print.cpp		\
+		  Scanner.cpp	\
+		  Token.cpp	\
+		  Identifier.cpp \
+		  #Literal_test.cpp
 
 # Creates a macro named OBJECTS from SOURCES where each occurrence of .c in SOURCES is replaced by a .o in
 # OBJECTS. For example, if SOURCES=File1.c File2.c File3.c then OBJECTS would be File1.o File2.o File3.o.
