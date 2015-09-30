@@ -1,13 +1,18 @@
 //
 //  Scanner.cpp
-//  Lab5
+//  Lab4
 //
-//  Created by jie/Zelpha
+//  Created by Bryce Holton.
 //
 
 #include "Scanner.h"
 #include "Print.h"
+
+
+
 #include <string>
+
+
 
 using namespace std;
 
@@ -309,6 +314,9 @@ void Scanner::getString(char *str, char *token_ptr, Token *tok)
 	 tok->set_Literal_value((void *) &my_S, 3);
 }
 
+
+
+
 void Scanner::getSpecial(char *str, char *token_ptr, Token *tok)
 {
     /*
@@ -463,7 +471,7 @@ void Scanner::downshiftWord(char word[])
      */
     int index;
 
-    for (index = 0; index < strlen(word); index++)
+    for (index = 0; index < 3/*strlen(word)*/; index++)
     {
         word[index] = tolower(word[index]);
     }
