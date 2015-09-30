@@ -1,8 +1,9 @@
 //
 //  LineNumberList.cpp
-//  Lab5
+//  Lab4
 //
-//  Created by jie/Zelpha
+//  Created by Bryce Holton on 3/28/14.
+//  Copyright (c) 2014 Bryce Holton. All rights reserved.
 //
 
 #include "LineNumberList.h"
@@ -14,7 +15,7 @@ LineNumberList::LineNumberList()
 }
 LineNumberList::~LineNumberList()
 {
-
+    
 }
 void LineNumberList::setLineNumber(int num)
 {

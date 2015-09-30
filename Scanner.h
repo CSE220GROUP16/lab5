@@ -1,20 +1,27 @@
 //
 //  Scanner.h
-//  Lab5
+//  Lab4
 //
-//  Created by jie/Zelpha
+//  Created by Bryce Holton.
 //
+
+#ifndef mine_h
+#define mine_h
+#include "template_clas.h"
+
+#endif // mine_h
+
 
 #ifndef Lab4_Scanner_h
 #define Lab4_Scanner_h
-
-#include "template_clas.h"
 #include<stdlib.h>
 #include<string.h>
 #include "common.h"
 #include "Token.h"
 #include "Print.h"
-#include "Identifier.h"
+
+
+
 
 #define CHAR_TABLE_SIZE 256
 
@@ -56,6 +63,7 @@ public:
     ~Scanner();
     Token* getToken();
     int getLineNumber();
+
 };
 
 #endif

@@ -1,8 +1,8 @@
 //
-//  Identifier.cpp
+//  Token.cpp
 //  Lab5
 //
-//  Created by jie/Zelpha
+//  Created by jie/zelpha
 //
 
 #include "Identifier.h"

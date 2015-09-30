@@ -1,12 +1,17 @@
 
 //
-//  template_clas.h
-//  Lab5
+
+//  Lab4
 //
-//  Created by Jie/Zelpha
+//  Created by Jie.
 //
+#include <string>
+
+
+
 #ifndef __Lab5__template_class__
 #define __Lab5__template_class__
+
 
 #include <string>
 #include <iostream>
