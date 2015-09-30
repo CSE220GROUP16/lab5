@@ -20,7 +20,7 @@
 
 #define FORM_FEED_CHAR          '\f'
 #define EOF_CHAR                '\x7f'
-#define MAX_FILE_NAME_LENGTH    700
+#define MAX_FILE_NAME_LENGTH    70
 #define MAX_SOURCE_LINE_LENGTH  256
 #define MAX_TOKEN_STRING_LENGTH MAX_SOURCE_LINE_LENGTH
 #define MAX_PRINT_LINE_LENGTH   80
